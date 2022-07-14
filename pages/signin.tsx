@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { supabase } from "../utils/supabaseClient";
+import AppLayout from "../layouts/AppLayout";
 import Auth from "../components/Auth";
 
 import { Session } from "@supabase/gotrue-js/src/lib/types";
@@ -13,11 +14,10 @@ export default function SignIn() {
       setSession(session);
     });
   }, []);
-  console.log(supabase.auth.user());
-
+  console.log(session)
   return (
-    <div style={{ padding: "50px 0 100px 0" }}>
-      {!session ? <Auth /> : "Logged in"}
-    </div>
+    <AppLayout>
+      <div>{!session ? <Auth /> : "Logged in"}</div>
+    </AppLayout>
   );
 }

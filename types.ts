@@ -1,4 +1,3 @@
-export interface UserType {
-    id: string
-    email: string
-}
+import { User } from "@supabase/gotrue-js/src/lib/types"
+
+export interface UserType extends User { }
